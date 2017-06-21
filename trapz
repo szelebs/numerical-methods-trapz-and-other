@@ -1,0 +1,80 @@
+
+
+
+y=@(x) 2.*sin(4.*x);
+xp = -1;
+xk = 5;                  // using quad methot
+ans = quad(y, xp, xk)
+
+st=(5-(-1))/2000;
+x=-1:st:5;
+y1= 2.*sin(4.*x);        // using trapz method
+f=trapz(x,y1)
+
+the results are the same for both methods, but bear in mind that to have same answers for both methods you have to know how many steps
+are needed to do that.
+
+Specifying sum of elements:
+
+n = 0;
+sum = 0;
+word = 0;
+do 
+n = n+1;
+word  = 2^n / factorial(n);
+sum = sum + word;
+until word < 0.01;
+n
+word
+sum
+
+The code above is showing you the amount of the biggest word of the sum specified by the equation 2^n/n! that will be lower than 0.01
+then it shows you the number of iterations made by the do until loop, the amount of word for the number of iterations, and the sum of elements from 1 to n
+
+
+
+plotting chart for multi amountal function
+
+x1 = -2:0.01:0;
+y1 = sin(1 ./ x1);
+x2 = 0:0.01:2;
+y2 = 0 .* x2;
+plot(x1,y1,'r',x2,y2,'m')
+
+the code above is showing you the plot of f(x) specified for the periods. the y1 function is applying only to x1 period and analogically with y2
+then we use the plot function where you are specifying what you are plotting and what colour are you using (f.e 'r' means red)
+
+
+
+summing up the amounts of odd rows of the square matrix
+
+function[k] = matrix(A)
+ii = 1;
+jj = 1;
+k = 0;
+x = rows(A);
+for ii = 1:2:x
+  for jj = 1:x
+    k = k + A(ii,jj);
+  endfor
+endfor
+endfunction
+
+first we are defining the function and matrix, then we are defining the starting point of summing the elements of the matrix.
+As we can see the starting point is on the first row and in the first column (ii - rows, jj - columns).
+k is the sum that will be out answer for query.
+x has assigned the number of rows in the matrix (function rows(x), we can use cols(x) but it's not the task here)
+then we have 2 for loops. in the first we have defined the steps for rows, the second part of command is step we are making going through all rows of matrix
+since we started from row nr 1, and we are summing only the odd rows - the step is 2, so the next row is 3,5,7 and so on.
+then in the second loop we are defining the number of columns. we do not include the command for the specific step here because we don't need it
+by that, when the code is visiting the odd row, in the same time is visiting every column in the specific row.
+At the end we are summing up the elements in the simple fashion similar to incrementation (but don't mistake this for it)
+WARNING. You will need to make some kind of main file, where you are defining the matrix you want odd rows summed up, and you have to, of course, call out the function.
+
+
+
+
+
+
+
+
